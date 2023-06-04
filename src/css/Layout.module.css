@@ -1,0 +1,57 @@
+.container{
+    margin: 10px auto;
+    width: 500px;
+}
+
+.input{
+    width: 280px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: 1px solid lightgrey;
+    font-size: large;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.label{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.select{
+    display: block;
+    padding: 12px 24px;
+    font-size: large;
+    border-radius: 12px 12px 5px 5px;
+    border: .5px solid lightgrey;
+    box-shadow: 8px 8px #eee;
+}
+
+.option{
+    border: .5px solid lightgrey;
+}
+
+.select:focus{
+    outline: none;
+}
+
+.alignCenter{
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 650px) {
+    .container{
+        width: 85%;
+        margin: 2px auto;
+    }
+    .input{
+        width: 50%;
+    }
+}
+
+
+
