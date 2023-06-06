@@ -22,11 +22,11 @@ const Navbar = () => {
                 }}>Menu</p>
                 <div className={styles.navRelative} style={isActive==true?{"display":"block"}:{"display":"none"}}>
                     <div className={styles.navLinksBox}>
-                        <Link className={styles.navLinks}  to={"/length"}>Length</Link>
-                        <Link className={styles.navLinks}  to={"/mass"}>Mass</Link>
-                        <Link className={styles.navLinks}  to={"/time"}>Time</Link>
-                        <Link className={styles.navLinks}  to={"/currency"}>Currency</Link>
-                        <Link className={styles.navLinks}  to={"/data"}>Data</Link> 
+                        <Link className={styles.navLinks}  to={"/length"}  onClick={()=>{setIsActive("false")}}>Length</Link>
+                        <Link className={styles.navLinks}  to={"/mass"} onClick={()=>{setIsActive("false") >Mass</Link>
+                        <Link className={styles.navLinks}  to={"/time"} onClick={()=>{setIsActive("false") >Time</Link>
+                        <Link className={styles.navLinks}  to={"/currency"} onClick={()=>{setIsActive("false") >Currency</Link>
+                        <Link className={styles.navLinks}  to={"/data"} onClick={()=>{setIsActive("false") >Data</Link> 
                     </div>
                 </div>
             </div>
