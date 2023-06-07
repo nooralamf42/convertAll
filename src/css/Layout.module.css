@@ -41,6 +41,7 @@
 
 .alignCenter{
     margin-left: 50px;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 650px) {
