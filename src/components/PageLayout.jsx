@@ -9,28 +9,39 @@ function Layout(props){
     let [currentValue2, setCurrentValue2] = useState("");
     let [unit1, setUnit1] = useState("");
     let [unit2, setUnit2] = useState("");
-    useEffect(()=>{
-        setUnit1("Unit 1");
-        setUnit2("Unit 2")
-    },[props.convertionType])
-    let [operator, setOperator] = useState(props.data[0][2])
+    let [isClicked, setIsClicked] = useState(false)
+
+    
+    let [operator, setOperator] = useState()
     
     const options = props.data
-
+    
     function convertionHandler() {
 
-        if(userInput1.current.value==currentValue1){
-            userInput1.current.value = (userInput2.current.value * operator).toFixed(2);
-            setCurrentValue2(userInput2.current.value);
-            setCurrentValue1(userInput1.current.value);
+        if(isClicked){
+            if(userInput1.current.value==currentValue1){
+                userInput1.current.value = parseFloat((userInput2.current.value * operator).toFixed(2));
+                setCurrentValue2(userInput2.current.value);
+                setCurrentValue1(userInput1.current.value);
+            }
+            
+            else if(userInput2.current.value==currentValue2){
+                userInput2.current.value = parseFloat((userInput1.current.value / operator).toFixed(2));
+                setCurrentValue1(userInput1.current.value);
+                setCurrentValue2(userInput2.current.value)
+            }     
         }
         
-        else if(userInput2.current.value==currentValue2){
-            userInput2.current.value = (userInput1.current.value / operator).toFixed(2);
-            setCurrentValue1(userInput1.current.value);
-            setCurrentValue2(userInput2.current.value)
-        }     
     }
+    useEffect(()=>{
+        setUnit1("Unit 1");
+        setUnit2("Unit 2");
+        setIsClicked("false");
+        userInput1.current.value="";
+        userInput2.current.value=""
+
+
+    },[props.convertionType])
 
     const clickHandler = (event) => {
         setCurrentValue1(0);
@@ -51,9 +62,10 @@ function Layout(props){
             <label className={styles.label} >{unit1}</label>
             <input type="number" className={styles.input} ref={userInput2} onChange= {convertionHandler}/>
             <label className={styles.label}>{unit2}</label>
-            <select className={styles.select} onChange={clickHandler}>
+            <select className={styles.select} onChange={clickHandler} onClick={()=>setIsClicked(true)}>
+                <option selected disabled>Select units here</option>
                 { options.map((option) => {
-                    return <option value={option} className={styles.option}>{option[0]} into {option[1]}</option>
+                    return <option value={option} className={styles.option}>{isClicked == true? `${option[0]} into ${option[1]}` : "Select units here"}</option>
                 })}
             </select>
         </div>
