@@ -52,6 +52,10 @@
     .input{
         width: 50%;
     }
+    .alignCenter{
+        text-align: center;
+        margin-left:0;
+    }
 }
 
 
